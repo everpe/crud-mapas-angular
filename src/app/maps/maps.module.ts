@@ -25,8 +25,8 @@ import { MapsRoutingModule } from './maps-routing.module';
     CommonModule,
     MapsRoutingModule
   ],
-  exports: [
-    MapScreenComponent
-  ]
+  // exports: [
+  //   MapScreenComponent
+  // ]
 })
 export class MapsModule { }

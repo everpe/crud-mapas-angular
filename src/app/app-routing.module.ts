@@ -8,36 +8,31 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: AppComponent,
     children: [
       {
         path: '',
-        redirectTo: '/crud',
+        redirectTo: 'crud',
         pathMatch: 'full',
       },
       {
-        path: "mapas",
+        path: 'crud',
         loadChildren: () =>
-          import("./maps/maps.module").then(
-            (m) => m.MapsModule
-          ),
+          import('./general/crud/crud.module').then((m) => m.CrudModule),
       },
       {
-        path: "crud",
-        loadChildren: () =>
-          import("./general/crud-users/crud-users.module").then(
-            (m) => m.CrudUsersModule
-          ),
+        path: 'maps',
+        loadChildren: () => import('./maps/maps.module').then((m) => m.MapsModule),
       },
     ],
   },
   {
     path: '**',
     loadChildren: () =>
-      import(
-        './general/page-not-found/page-not-found.module'
-      ).then((m) => m.PageNotFoundModule),
+      import('./general/page-not-found/page-not-found.module').then(
+        (m) => m.PageNotFoundModule
+      ),
   },
 ];
 

@@ -4,7 +4,7 @@ import { MapScreenComponent } from './screens/map-screen/map-screen.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path:"",
     component: MapScreenComponent
   }
 ];

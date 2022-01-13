@@ -1,0 +1,109 @@
+<div class="contenedor">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title> <h2>Simple CRUD OrusXpert</h2>  </mat-card-title>
+    </mat-card-header>
+    <br />
+    Esta es una app angular a modo de prueba que contiene un crud sencillo consumiendo una api de prueba,
+    y sección de mapas, marcadores y geolocalización.
+    <button mat-stroked-button color="primary" [routerLink]="'/maps'">Ir a mapas</button>
+    <div class="col">
+      <a
+        mat-fab
+        color="primary"
+        title="Agregar post"
+        (click)="agregar()"
+        class="btn-add"
+      >
+        <mat-icon>add</mat-icon>
+      </a>
+    </div>
+
+    <mat-card-content class="hide-print padding-10">
+      <div class="mat-elevation-z8">
+        <mat-table
+          #table
+          class="full-width-table"
+          [dataSource]="dataSource"
+          matSort
+          multiTemplateDataRows
+        >
+          <ng-container matColumnDef="title">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              Titulo del post
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row" data-label="Titulo post">
+              {{ row.title | uppercase }}
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="body">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              Contenido
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row" data-label="Contenido">
+              {{ row.body | uppercase }}
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="userId">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              Id usuario
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row" data-label="Id usuario">
+              {{ row.userId }}
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="acciones">
+            <mat-header-cell *matHeaderCellDef class="cel-centrado">
+              Acciones
+            </mat-header-cell>
+            <mat-cell
+              *matCellDef="let row"
+              data-label="acciones"
+              class="iconos-acc"
+            >
+              <a
+                mat-fab
+                color="primary"
+                (click)="visualizar(row)"
+                class="actionBtn"
+              >
+                <mat-icon>visibility</mat-icon>
+              </a>
+              <a
+                mat-fab
+                color="primary"
+                (click)="editar(row)"
+                class="actionBtn"
+              >
+                <mat-icon>edit</mat-icon>
+              </a>
+              <a
+                mat-fab
+                color="primary"
+                (click)="eliminar(row)"
+                class="actionBtn"
+              >
+                <mat-icon>delete_forever</mat-icon>
+              </a>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row
+            *matRowDef="let row; columns: displayedColumns"
+            matRipple
+            class="element-row"
+          ></mat-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </mat-table>
+        <mat-paginator
+          #paginator
+          [length]="dataSource?.data?.length"
+          [pageSizeOptions]="[5, 10, 25, 100]"
+        >
+        </mat-paginator>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

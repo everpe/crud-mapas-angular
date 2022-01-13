@@ -1,0 +1,16 @@
+.box{
+    justify-content: center;
+    padding: 10px;
+    text-align: center;
+}
+.mat-dialog-actions{
+    justify-content: center;
+}
+.formControl{
+    width: 100%;
+    display: block;
+}
+.mat-form-field{
+    width: 100%;
+    display: block;
+}

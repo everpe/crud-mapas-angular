@@ -1,0 +1,44 @@
+<form [formGroup]="form" class="formulario">
+    <div class="box">
+      <h3><b>Post</b></h3>
+      <div class="col horas span1">
+        <mat-form-field appearance="fill">
+          <mat-label> Titulo del post * </mat-label>
+          <input
+            placeholder="Digite el titulo"
+            formControlName="title"
+            matInput
+            type="text"
+          />
+          <mat-icon matPrefix>title</mat-icon>
+          <mat-error *ngIf="form.controls['title'].invalid">
+            Valor incorrecto.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col horas span1">
+        <mat-form-field appearance="fill" class="formControl">
+          <mat-label> Contenido del post * </mat-label>
+          <textarea
+            placeholder="Digite el contenido"
+            formControlName="body"
+            matInput
+            maxlength="500"
+            type="text"
+          ></textarea>
+          <mat-icon matPrefix>waves</mat-icon>
+          <mat-error *ngIf="form.controls['body'].invalid">
+            Valor incorrecto
+          </mat-error>
+        </mat-form-field>
+  
+    
+      </div>
+    </div>
+  
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">Cerrar</button>
+      <button mat-raised-button color="primary" [mat-dialog-close]="form" cdkFocusInitial>Ok</button>
+    </div>
+  </form>
+  
