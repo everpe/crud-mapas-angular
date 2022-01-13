@@ -1,4 +1,8 @@
 # Simple Cud&MapasApp
+Explicación general: 
+Para está prueba se utilizó Angular material, JsonServer para consumir como api, y openStreetMaps para la parte de Mapas.
+Se realiza un crud muy sencillo con las operaciopne sRest básicas modularmente y siguiendo buenas practicas de Angular, para la parte de mapas favor ACTIVAR la localización del navegador, ya que una vez se obtiene esta se pueden marcar puntos en el mapa, trazar una ruta etc...
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
